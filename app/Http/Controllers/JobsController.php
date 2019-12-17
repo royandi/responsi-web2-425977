@@ -15,7 +15,7 @@ class JobsController extends Controller
     public function index()
     {
         $da = Jobs::all();
-        return view('')->with('', $ta);
+        return view('jobs.index')->with('jobs', $da);
     }
 
     /**
@@ -25,7 +25,7 @@ class JobsController extends Controller
      */
     public function create()
     {
-        return view('');
+        return view('jobs.create');
     }
 
     /**

@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('base');
 });
 Route::get('/info', function () {
     return view('info');
@@ -23,6 +23,10 @@ Route::get('/info', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::group(['middleware' => ['auth']], function () {
+    //
+
+
 
 Route::get('/jobs', 'JobsController@index')->name('jobs');
 Route::post('/jobs/add', 'JobsController@add')->name('jobsAdd');
@@ -40,4 +44,5 @@ Route::get('/employees/edit/{id}', 'EmployeesController@edit')->name('employeesE
 Route::get('/employees/delete/{id}', 'EmployeesController@destroy')->name('employeesDelete');
 Route::get('/employees/create', function () {
     return view('employees.create');
+});
 });

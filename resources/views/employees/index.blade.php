@@ -1,13 +1,13 @@
-@extends('')
+@extends('base')
 @section('employees','active')
-@section('')
-<a href="{{route('')}}" class="btn btn-primary">Tambah Data</a>
+@section('content')
+{{-- <a href="{{route('employees/add')}}" class="btn btn-primary">Tambah Data</a> --}}
 <br/><br/>
 <table class="table table-bordered table-hover">
     <thead>
         <tr>
             <th scope="col" width="1">#</th>
-            <th scope="col">Jobs</th>
+            {{-- <th scope="col">Jobs</th> --}}
             <th scope="col">Nama Pegawai</th>
             <th scope="col">E-Mail</th>
             <th scope="col">Kontak</th>
@@ -16,23 +16,23 @@
         </tr>
     </thead>
     <tbody>
-        @foreach($ as $data)
+        @foreach($datas as $data)
         <tr>
             <th scope="row">{{$data->id_employees}}</th>
-            <td>{{$data->jobs->name}}</td>
+            {{-- <td>{{$data->jobs->name}}</td> --}}
             <td>{{$data->name}}</td>
             <td>{{$data->email}}</td>
             <td>{{$data->phone}}</td>
             <td>{{$data->address}}</td>
             <td>
-                <div class="btn-group">
-                    <a href="{{route('',$data->id_employees)}}" class="btn btn-success">Edit</a>
-                    <form action="{{ route('', $data->id_employees)}}" method="post">
+                {{-- <div class="btn-group">
+                    <a href="{{route('employees/edit',$data->id_employees)}}" class="btn btn-success">Edit</a>
+                    <form action="{{ route('employees/delete', $data->id_employees)}}" method="post">
                         @csrf
                         @method('DELETE')
                         <button class="btn btn-danger" type="submit">Hapus</button>
                     </form>
-                </div>
+                </div> --}}
             </td>
         </tr>
         @endforeach

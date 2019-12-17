@@ -12,6 +12,9 @@
 */
 
 Route::get('/', function () {
+    if(Auth::user()){
+        return redirect('/jobs');
+    }
     return view('welcome');
 });
 Route::get('/info', function () {
@@ -25,8 +28,6 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['middleware' => ['auth']], function () {
     //
-
-
 
 Route::get('/jobs', 'JobsController@index')->name('jobs');
 Route::post('/jobs/add', 'JobsController@add')->name('jobsAdd');

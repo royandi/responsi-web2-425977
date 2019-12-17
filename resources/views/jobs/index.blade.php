@@ -1,7 +1,7 @@
 @extends('base')
 @section('jobs','active')
 @section('content')
-<!-- <a href="{{route('')}}" class="btn btn-primary">Tambah Data</a> -->
+<a href="/jobs/add" class="btn btn-primary">Tambah Data</a>
 <br/><br/>
 <table class="table table-bordered table-hover">
     <thead>
@@ -18,12 +18,12 @@
             <td>{{$data->name}}</td>
             <td>
                 <div class="btn-group">
-                    <!-- <a href="{{route('',$data->id_jobs)}}" class="btn btn-success">Edit</a>
-                    <form action="{{ route('', $data->id_jobs)}}" method="post">
+                    <a href="/jobs/edit" class="btn btn-success">Edit</a>
+                    <form action="{/jobs/delete" method="post">
                         @csrf
                         @method('DELETE')
                         <button class="btn btn-danger" type="submit">Hapus</button>
-                    </form> -->
+                    </form>
                 </div>
             </td>
         </tr>
